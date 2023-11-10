@@ -1,6 +1,5 @@
 #scoreTable {
-    display: inline-block; /* 设置按钮为行内块级元素 */
-    margin-left: 20px;
+    display: inline-block;
     vertical-align: top;
 
     outline: 1px solid blue;
@@ -8,10 +7,9 @@
 }
 
 #scoreTable td, #scoreTable th {
-    border: 1px solid blue; /* 单元格边框 */
+    border: 1px solid blue;
 }
 
 #downloadButton {
-    display: inline-block; /* 设置按钮为行内块级元素 */
-    
+    display: inline-block;
 }
