@@ -155,8 +155,8 @@
                 else return "poor-kid";})
             .append("img")
             .attr("src", function (d, i) { 
-                if (d >= 0 && d <= 10) {
-                    return `./img/${d}.svg`;
+                if (d >= 0 && d <= 100) {
+                    return `./img/${d/10}.svg`;
                 } else {
                     return "./svg10/00.svg";
                 }
@@ -196,8 +196,8 @@
                 else return "poor-kid";})
             .append("img")
             .attr("src", function (d, i) {
-                if (d >= 0 && d <= 10) {
-                    return `./img/${d}.svg`;
+                if (d >= 0 && d <= 100) {
+                    return `./img/${d/10}.svg`;
                 } else {
                     return "./svg10/00.svg";
                 }
