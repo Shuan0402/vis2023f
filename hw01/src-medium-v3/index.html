@@ -155,17 +155,17 @@
                 else return "poor-kid";})
             .append("img")
             .attr("src", function (d, i) { 
-                if (d == 10) return "./img/10.svg";
-                else if (d == 9) return "./img/9.svg";
-                else if (d == 8) return "./img/8.svg";
-                else if (d == 7) return "./img/7.svg";
-                else if (d == 6) return "./img/6.svg";
-                else if (d == 5) return "./img/5.svg";
-                else if (d == 4) return "./img/4.svg";
-                else if (d == 3) return "./img/3.svg";
-                else if (d == 2) return "./img/2.svg";
-                else if (d == 1) return "./img/1.svg";
-                else if (d == 0) return "./img/0.svg";
+                if (d == 10) return "../apple/10.svg";
+                else if (d == 9) return "../apple/9.svg";
+                else if (d == 8) return "../apple/8.svg";
+                else if (d == 7) return "../apple/7.svg";
+                else if (d == 6) return "../apple/6.svg";
+                else if (d == 5) return "../apple/5.svg";
+                else if (d == 4) return "../apple/4.svg";
+                else if (d == 3) return "../apple/3.svg";
+                else if (d == 2) return "../apple/2.svg";
+                else if (d == 1) return "../apple/1.svg";
+                else if (d == 0) return "../apple/0.svg";
                 else return "./svg10/00.svg"; })
             .attr("x", "0")
             .attr("y", "0")
@@ -173,7 +173,7 @@
             .attr("height", function(d, i) { return (i + 1) * 60; });
 
 
-    d3.text("./csv/data.csv", function (data) {
+    d3.text("./output.csv", function (data) {
 
         //var parsedCSV = d3.csv.parseRows(data);
         parsedCSV = d3.csv.parseRows(data);
@@ -205,27 +205,27 @@
             .append("img")
             .attr("src", function (d, i) {
                 if (d == 10) 
-                    return "./img/10.svg";
+                    return "../apple/10.svg";
                 else if (d == 9) 
-                    return "./img/9.svg";
+                    return "../apple/9.svg";
                 else if (d == 8) 
-                    return "./img/8.svg";
+                    return "../apple/8.svg";
                 else if (d == 7) 
-                    return "./img/7.svg";
+                    return "../apple/7.svg";
                 else if (d == 6) 
-                    return "./img/6.svg";
+                    return "../apple/6.svg";
                 else if (d == 5) 
-                    return "./img/5.svg";
+                    return "../apple/5.svg";
                 else if (d == 4) 
-                    return "./img/4.svg";
+                    return "../apple/4.svg";
                 else if (d == 3) 
-                    return "./img/3.svg";
+                    return "../apple/3.svg";
                 else if (d == 2) 
-                    return "./img/2.svg";
+                    return "../apple/2.svg";
                 else if (d == 1) 
-                    return "./img/1.svg";
+                    return "../apple/1.svg";
                 else if (d == 0) 
-                    return "./img/0.svg";
+                    return "../apple/0.svg";
             })
             .attr("width", 50)
             .attr("height", 50)
