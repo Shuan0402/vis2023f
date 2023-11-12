@@ -20,40 +20,7 @@ function createAppleLevel() {
         .attr("height", function (d, i) { return (i + 1) * 60; });
 }
 
-// 將資料處理的部分包裝成一個函式
-function createTranscripts(data) {
-
-    parsedCSV = d3.csv.parseRows(data);
-
-    var container = d3.select("Transcripts")
-        .append("table")
-        .selectAll("tr")
-        .data(parsedCSV)
-        .enter()
-        .append("tr")
-        .selectAll("td")
-        .data(function (d) { return d; }).enter()
-        .append("td")
-        .html(function (d, i) {
-            if (i === 4 && d !== 'GitHub 帳號') {
-                return '<a href="https://' + d + '.github.io/vis2023f/" target="_blank"><img src="https://' + d + '.github.io/vis2023f/hw00/me.jpg"></a>' + '<hr><a href="https://github.com/' + d + '/vis2023f/" target="_blank">' + d + '</a>';
-            } else if (i === 0 || i === 2 || isNaN(d)) {
-                return d;
-            }
-        })
-        .filter(function (d, i) { return (i > 2 && !isNaN(d) && d !== ""); })
-        .append("img")
-        .attr("src", function (d, i) {
-            if (d >= 0 && d <= 10) return `./img/${d}.svg`;
-            else return "./img/10.svg";
-        })
-        .attr("width", 50)
-        .attr("height", 50);
-}
 
 document.addEventListener("DOMContentLoaded", function() {
     createAppleLevel();
-    // d3.text("./output.csv", function (data) {
-    //     createTranscripts(data);
-    // });
 });
