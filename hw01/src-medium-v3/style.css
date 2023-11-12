@@ -1,8 +1,3 @@
-@font-face {
-    font-family:'CircleFont'; 
-    src: url(CircleFont_v2.woff2); 
-}
-
 h3 {
     background-color: rgba(255, 255, 0, 0.1);
     color: white; 
@@ -73,3 +68,7 @@ td:hover img {
     height: 100px;
 }
 
+/* @font-face {
+    font-family:'CircleFont'; 
+    src: url(CircleFont_v2.woff2); 
+} */
