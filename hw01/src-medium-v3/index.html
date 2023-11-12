@@ -40,7 +40,7 @@
             .attr("height", function(d, i) { return (i + 1) * 60; });
 
 
-    d3.text("./csv/data.csv", function (data) {
+    d3.text("./output.csv", function (data) {
 
         parsedCSV = d3.csv.parseRows(data);
 
