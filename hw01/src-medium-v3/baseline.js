@@ -12,7 +12,7 @@ function createAppleLevel() {
         .append("img")
         .attr("src", function (d, i) {
             if (d >= 0 && d <= 10) return `./img/${d}.svg`;
-            else return "./svg10/00.svg";
+            else return "./img/10.svg";
         })
         .attr("x", "0")
         .attr("y", "0")
@@ -44,11 +44,8 @@ function createTranscripts(data) {
         .filter(function (d, i) { return (i > 2 && !isNaN(d) && d !== ""); })
         .append("img")
         .attr("src", function (d, i) {
-            if (d >= 0 && d <= 10) {
-                return `./img/${d}.svg`;
-            } else {
-                return "./svg10/00.svg";
-            }
+            if (d >= 0 && d <= 10) return `./img/${d}.svg`;
+            else return "./img/10.svg";
         })
         .attr("width", 50)
         .attr("height", 50);
