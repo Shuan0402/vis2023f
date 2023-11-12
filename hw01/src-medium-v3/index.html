@@ -25,7 +25,7 @@
             })
             .append("img")
             .attr("src", function (d, i) { 
-                if (d >= 0 && d <= 10) return `./img/${d}.svg`;
+                if (d >= 0 && d <= 10) return `./img/0.svg`;
                 else return "./svg10/00.svg";
             })
             .attr("x", "0")
@@ -35,7 +35,6 @@
 
 
         d3.text("./output.csv", function (data) {
-
             parsedCSV = d3.csv.parseRows(data);
 
             var container = d3.select("#div_2")
