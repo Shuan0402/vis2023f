@@ -53,7 +53,7 @@ function createTranscripts(data) {
 
 document.addEventListener("DOMContentLoaded", function() {
     createAppleLevel();
-    d3.text("./output.csv", function (data) {
-        createTranscripts(data);
-    });
+    // d3.text("./output.csv", function (data) {
+    //     createTranscripts(data);
+    // });
 });
