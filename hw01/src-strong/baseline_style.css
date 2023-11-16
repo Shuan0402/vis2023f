@@ -1,0 +1,15 @@
+#scoreTable {
+    display: inline-block;
+    vertical-align: top;
+
+    outline: 1px solid blue;
+    table-layout: auto;
+}
+
+#scoreTable td, #scoreTable th {
+    border: 1px solid blue;
+}
+
+#downloadButton {
+    display: inline-block;
+}
