@@ -178,37 +178,18 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      Easy baseline 程式碼，請放在 https://github.com/
-      <span style="color:red;">Shuan0402</span>
-      /vis2023f/hw
-      <span style="color:red;">01</span>
-      /src-easy 檔案夾。
-      <br>
-      
-      <hr>
-      Medium-v3 baseline 程式碼，請放在 https://github.com/
-      <span style="color:red;">Shuan0402</span>
-      /vis2023f/hw
-      <span style="color:red;">01</span>
-      /src-medium-v3 檔案夾。
-      <br>
-      
-      <hr>
-      Medium-v7 baseline 程式碼，請放在 https://github.com/
-      <span style="color:red;">Shuan0402</span>
-      /vis2023f/hw
-      <span style="color:red;">01</span>
-      /src-medium-v7 檔案夾。
-      <br>
-    </div>
-  </div>
-
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
       第一次接觸 HTML、CSS、JS，所以光是 easy 就花費了蠻大的力氣，所幸在後來有比較漸入佳境了。但還是有些問題無法解決，有機會會再解決，另外還有些程式碼還搞不懂，需要花時間再理解。蘋果成績表很可愛，尤其是滑鼠放上去會放大蘋果，這增添了互動的樂趣。
     </div>
   </div>
+
+   <!-- ------------------------------------------------>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+      打開作品集資料夾 (GitHub 倉庫 vis2023f 傳送門) 
+      <hr>
+      <input type="button" name="back" onclick="location.href='https://github.com/Shuan0402/vis2023f/'" value="按我  ٩(｡・ω・｡)و   前往倉庫"> 
+    </div>
+</div>
 
    <!-- ------------------------------------------------>
   
@@ -241,12 +222,12 @@
         </tr>
         <tr>
           <td rowspan="4" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
           <td id='m1'>2</td>
           <td>Simple baseline - 產生 Dummy CSV 虛構成績表</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
           <td id='m2'>2</td>
           <td>Simple baseline - 繪製 v3 蘋果成績表</td>
         </tr>
@@ -321,6 +302,7 @@
   </div>
 
 <script>
+  
   $(function() {
     var f = function() {
       $(this).next().text($(this).is(':checked') ? '做完' : '未做完');
