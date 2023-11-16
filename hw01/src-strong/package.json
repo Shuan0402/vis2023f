@@ -1,0 +1,14 @@
+{
+  "name": "968f7e7e77d497a3",
+  "main": "968f7e7e77d497a3@146.js",
+  "version": "146.0.0",
+  "homepage": "https://observablehq.com/d/968f7e7e77d497a3",
+  "author": {
+    "name": "Shuan's Workspace",
+    "url": "https://observablehq.com/@shuan-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
