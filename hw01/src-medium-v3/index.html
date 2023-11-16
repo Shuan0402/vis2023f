@@ -63,7 +63,7 @@
                 .filter(function (d, i) { return (i > 2 && !isNaN(d) && d != ""); })
                 .append("img")
                 .attr("src", function (d, i) {
-                    if (d >= 0 && d <= 10) return `./img/${d}.svg`;
+                    if (d >= 0 && d <= 10) return `./img/00.svg`;
                     else return "./img/00.svg";
                 })
                 .attr("width", 50)
