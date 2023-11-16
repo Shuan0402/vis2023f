@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HW2 Medium baseline - v7 (3pt)</title>
+    //<title>HW2 Medium baseline - v7 (3pt)</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
 
@@ -149,15 +149,15 @@
                 else return "poor-kid";})
             .append("img")
             .attr("src", function (d, i) {
-                    if (d >= 0 && d <= 10) return "../appleSVG/" + d + ".svg";
-                    else return "../appleSVG/-1.svg";
+                    if (d >= 0 && d <= 10) return "../img/" + d + ".svg";
+                    else return "../img/-1.svg";
                 })
             .attr("x", "0")
             .attr("y", "0")
             .attr("width",  function(d, i) { return (i + 1) * 60; })
             .attr("height", function(d, i) { return (i + 1) * 60; });
 
-            d3.text("../studentTable.csv").then(function (data) {
+            d3.text("../output.csv").then(function (data) {
             parsedCSV = d3.csvParseRows(data);
 
             var container = d3.select("#student-table")
@@ -184,8 +184,8 @@
                     else return "poor-kid";})
                 .append("img")
                 .attr("src", function (d, i) {
-                    if (d >= 0 && d <= 10) return "../appleSVG/" + d + ".svg";
-                    else return "../appleSVG/-1.svg";
+                    if (d >= 0 && d <= 10) return "../img/" + d + ".svg";
+                    else return "../img/-1.svg";
                 })
                 .attr("width", 50)
                 .attr("height", 50)
