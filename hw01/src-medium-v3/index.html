@@ -218,7 +218,17 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
                 else return "poor-kid";})
             .append("img")
             .attr("src", function (d, i) {
-                if (d >= 0 && d <= 10) return "../img/" + d + ".svg";
+                if (d == 10) return "../img/10.svg";
+                else if (d == 9) return "../img/9.svg";
+                else if (d == 8) return "../img/8.svg";
+                else if (d == 7) return "../img/7.svg";
+                else if (d == 6) return "../img/6.svg";
+                else if (d == 5) return "../img/5.svg";
+                else if (d == 4) return "../img/4.svg";
+                else if (d == 3) return "../img/3.svg";
+                else if (d == 2) return "../img/2.svg";
+                else if (d == 1) return "../img/1.svg";
+                else if (d == 0) return "../img/0.svg";
                 else return "../img/00.svg";
             })
             .attr("width", 50)
