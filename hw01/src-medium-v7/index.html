@@ -165,8 +165,7 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
             .append("tr")
             .selectAll("td")
             .data([10,9,8,7,6,5,4,3,2,1,0])
-            .enter()
-            .append("td")
+            .join("td")
             .text(function (d, i) {
                 if (i <= 10 || isNaN(d)) {
                     return d;
@@ -199,8 +198,7 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
             .append("table")
             .selectAll("tr")
             .data(parsedCSV)
-            .enter()
-            .append("tr")
+            .join("tr")
             .selectAll("td")
             .data(function (d) { return d; }).enter()
             .append("td")
