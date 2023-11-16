@@ -83,7 +83,6 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
         img:hover {
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
-
         /*
         .excellent-kid {
             background-color: skyblue;
@@ -99,8 +98,7 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
 
         .poor-kid {
             background-color: pink;
-        }
-        */
+        }*/
 
         td:hover img {
             transition: width, height;
@@ -160,71 +158,71 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
 
     <script type="text/javascript" charset="utf-8">
 
-        d3.select("#div1")
-            .append("table")
-            .append("tr")
+        const data = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+
+        const table = d3.select("#div1")
+            .append("table");
+
+        table.append("tr")
             .selectAll("td")
-            .data([10,9,8,7,6,5,4,3,2,1,0])
+            .data(data)
             .join("td")
-            .text(function (d, i) {
+            .text((d, i) => {
                 if (i <= 10 || isNaN(d)) {
                     return d;
                 }
             })
-            // img
-            .attr("class", function (d, i) { 
-                if (d == 10) return "excellent-kid"; 
-                else if (d >= 7 ) return "good-kid"; 
-                else if (d >= 2 ) return "fair-kid"; 
-                else return "poor-kid";})
+            .attr("class", (d, i) => {
+                if (d === 10) return "excellent-kid";
+                else if (d >= 7) return "good-kid";
+                else if (d >= 2) return "fair-kid";
+                else return "poor-kid";
+            })
             .append("img")
-            .attr("src", function (d, i) { 
-                if (d >= 0 && d <= 10) return "../img/" + d + ".svg";
+            .attr("src", (d, i) => {
+                if (d >= 0 && d <= 10) return `../img/${d}.svg`;
                 else return "../img/00.svg";
             })
             .attr("x", "0")
             .attr("y", "0")
-            .attr("width",  function(d, i) { return (i + 1) * 60; })
-            .attr("height", function(d, i) { return (i + 1) * 60; });
+            .attr("width", (d, i) => (i + 1) * 60)
+            .attr("height", (d, i) => (i + 1) * 60);
 
+        
+        d3.text("../output.csv").then(function(data) {
+            const parsedCSV = d3.csvParseRows(data);
 
-    d3.text("../output.csv", function (data) {
+            const container = d3.select("#div2")
+                .append("table")
+                .selectAll("tr")
+                .data(parsedCSV)
+                .join("tr")
+                .selectAll("td")
+                .data(function(d) { return d; })
+                .join("td")
+                .html(function(d, i) {
+                    if (i == 4 && d !== 'GitHub 帳號') {
+                        return '<a href="https://' + d + '.github.io/vis2023f/" target="_blank"><img src="https://' + d + '.github.io/vis2023f/hw00/me.jpg"></a>' + '<hr><a href="https://github.com/' + d + '/vis2023f/" target="_blank">' + d + '</a>';
+                    } else if (i == 0 || i == 2 || isNaN(d)) {
+                        return d;
+                    }
+                })
+                .filter(function(d, i) { return (i > 2 && !isNaN(d) && d !== ""); })
+                .attr("class", function(d, i) {
+                    if (d == 10) return "excellent-kid";
+                    else if (d >= 7) return "good-kid";
+                    else if (d >= 2) return "fair-kid";
+                    else return "poor-kid";
+                })
+                .append("img")
+                .attr("src", function(d, i) {
+                    if (d >= 0 && d <= 10) return "../img/" + d + ".svg";
+                    else return "../img/00.svg";
+                })
+                .attr("width", 50)
+                .attr("height", 50);
+        });
 
-        //var parsedCSV = d3.csv.parseRows(data);
-        parsedCSV = d3.csvparseRows(data);
-        //console.log(parsedCSV);
-
-        var container = d3.select("#div2")
-            .append("table")
-            .selectAll("tr")
-            .data(parsedCSV)
-            .join("tr")
-            .selectAll("td")
-            .data(function (d) { return d; })
-            .join("td")
-            .html(function (d, i) {
-                if ( i == 4 && d != 'GitHub 帳號' ) {
-                    return '<a href="https://' + d + '.github.io/vis2023f/" target="_blank"><img src="https://' + d + '.github.io/vis2023f/hw00/me.jpg"></a>' + '<hr><a href="https://github.com/' + d + '/vis2023f/" target="_blank">' + d + '</a>';
-                }
-                else if ( i == 0 || i == 2 || isNaN(d)) {
-                    return d;
-                }
-            })
-            .filter(function (d, i) { return (i > 2 && !isNaN(d) && d != ""); })
-            .attr("class", function (d, i) { 
-                if (d == 10) return "excellent-kid"; 
-                else if (d >= 7 ) return "good-kid"; 
-                else if (d >= 2 ) return "fair-kid"; 
-                else return "poor-kid";})
-            .append("img")
-            .attr("src", function (d, i) {
-                if (d >= 0 && d <= 10) return "../img/" + d + ".svg";
-                else return "../img/00.svg";
-            })
-            .attr("width", 50)
-            .attr("height", 50)
-            ;
-    });
     </script>
 </body>
 
