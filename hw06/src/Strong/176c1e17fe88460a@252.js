@@ -207,6 +207,7 @@ function _chart_mouse(data,selectedSeries,d3)
           .attr("height", 0)
           .attr("y", d => yScale(d[1]))
           .attr("height", d => yScale(d[0]) - yScale(d[1]))
+          .attr("filter", "url(#drop-shadow)")
           // 新增事件綁定
           .on("mouseover", function(_evt, d) {
               d3.select(this).attr("fill", "#336774");
