@@ -193,11 +193,11 @@ function _selectedSeries1(Inputs){return(
 Inputs.checkbox(["artistVer", "artistPublic"], {label: "Choose datasets"})
 )}
 
-function _19(selectedSeries1){return(
+function _18(selectedSeries1){return(
 selectedSeries1
 )}
 
-function _20(Plot,artistVerKey,data,selectedSeries1){return(
+function _19(Plot,artistVerKey,data,selectedSeries1){return(
 Plot.plot({
   height: 600,
   title: artistVerKey,
@@ -238,8 +238,6 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof selectedSeries")).define("viewof selectedSeries", ["Inputs"], _selectedSeries);
   main.variable(observer("selectedSeries")).define("selectedSeries", ["Generators", "viewof selectedSeries"], (G, _) => G.input(_));
   main.variable(observer()).define(["selectedSeries"], _3);
-  main.variable(observer("viewof chart_transition")).define("viewof chart_transition", ["data","selectedSeries","d3"], _chart_transition);
-  main.variable(observer("chart_transition")).define("chart_transition", ["Generators", "viewof chart_transition"], (G, _) => G.input(_));
   main.variable(observer("viewof chart_mouse")).define("viewof chart_mouse", ["data","selectedSeries","d3"], _chart_mouse);
   main.variable(observer("chart_mouse")).define("chart_mouse", ["Generators", "viewof chart_mouse"], (G, _) => G.input(_));
   main.variable(observer("artistPublic")).define("artistPublic", ["__query","FileAttachment","invalidation"], _artistPublic);
@@ -255,7 +253,7 @@ export default function define(runtime, observer) {
   main.variable(observer("data")).define("data", ["artistVerCounts","artistPublicCounts"], _data);
   main.variable(observer("viewof selectedSeries1")).define("viewof selectedSeries1", ["Inputs"], _selectedSeries1);
   main.variable(observer("selectedSeries1")).define("selectedSeries1", ["Generators", "viewof selectedSeries1"], (G, _) => G.input(_));
-  main.variable(observer()).define(["selectedSeries1"], _19);
-  main.variable(observer()).define(["Plot","artistVerKey","data","selectedSeries1"], _20);
+  main.variable(observer()).define(["selectedSeries1"], _18);
+  main.variable(observer()).define(["Plot","artistVerKey","data","selectedSeries1"], _19);
   return main;
 }
