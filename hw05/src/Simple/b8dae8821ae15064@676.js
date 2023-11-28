@@ -131,7 +131,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["simple@2.json", {url: new URL("./files/b0340b47f741c507b2e323f253b7db1aff836b000e0f3c37a7b91315736a3dd81005849737b282a7b6bee3634886d7d4cdf7b55935505a66b007a547035865d2.json", import.meta.url), mimeType: "application/json", toString}]
+    ["simple@2.json", {url: new URL("../output.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
