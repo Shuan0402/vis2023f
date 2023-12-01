@@ -286,7 +286,7 @@ function _simple2(d3,simple_data,drag,invalidation)
 }
 
 
-function _simple3(d3,simple_data,drag,url_list,invalidation)
+function _simple3(d3,simple_strong,drag,url_list,invalidation)
 {
   // 指定圖表的尺寸。
   const width = 2000
@@ -294,7 +294,7 @@ function _simple3(d3,simple_data,drag,url_list,invalidation)
   const height = 400;
 
   // 計算圖形並啟動力模擬。
-  const root = d3.hierarchy(simple_data);
+  const root = d3.hierarchy(simple_strong);
   const links = root.links();
   const nodes = root.descendants();
   
@@ -477,6 +477,10 @@ function _simple_data(FileAttachment){return(
 FileAttachment("output.json").json()
 )}
 
+function _simple_strong(FileAttachment){return(
+FileAttachment("simple(分數版)-1.json").json()
+)}
+
 function _drag(d3){return(
 simulation => {
   
@@ -524,14 +528,16 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["output.json", {url: new URL("./files/f2564cfa41b0bc5c2097fd52c9b01237a981e5a81f4b1f0ab129f86c61216f8de0d6da4df3b10dd28515247c3dd9f0a0a3e5a2236e962adc35e70199b0f11df6.json", import.meta.url), mimeType: "application/json", toString}]
+    ["output.json", {url: new URL("./files/f2564cfa41b0bc5c2097fd52c9b01237a981e5a81f4b1f0ab129f86c61216f8de0d6da4df3b10dd28515247c3dd9f0a0a3e5a2236e962adc35e70199b0f11df6.json", import.meta.url), mimeType: "application/json", toString}],
+    ["simple(分數版)-1.json", {url: new URL("./files/23d5ea3681399adaea19f651041f8960b0f43106bc056b521a80224897beaf6fc65fc627537a9e871576d00b8fa0affa4ad9c3b09ed2fddf05d10158b6ca2b94.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer("simple1")).define("simple1", ["d3","simple_data","drag","invalidation"], _simple1);
   main.variable(observer("simple2")).define("simple2", ["d3","simple_data","drag","invalidation"], _simple2);
-  main.variable(observer("simple3")).define("simple3", ["d3","simple_data","drag","url_list","invalidation"], _simple3);
+  main.variable(observer("simple3")).define("simple3", ["d3","simple_strong","drag","url_list","invalidation"], _simple3);
   main.variable(observer("simple_data")).define("simple_data", ["FileAttachment"], _simple_data);
+  main.variable(observer("simple_strong")).define("simple_strong", ["FileAttachment"], _simple_strong);
   main.variable(observer("drag")).define("drag", ["d3"], _drag);
   main.variable(observer("url_list")).define("url_list", _url_list);
   return main;
