@@ -22,6 +22,35 @@ function updateIconPosition(x, y) {
   icon.style.top = `${iconY}%`;
 }
 
+function switchFloorLogic(floor) {
+    // 切換樓層時的邏輯
+    // 更改追蹤圖示的位置
+    switch (floor) {
+        case '1F':
+            // 將圖示放置到一樓對應的位置
+            icon.style.left = '0%';
+            icon.style.top = '0%';
+            break;
+        case '2F':
+            // 將圖示放置到二樓對應的位置
+            icon.style.left = '50%';
+            icon.style.top = '0%';
+            break;
+        case '3F':
+            // 將圖示放置到三樓對應的位置
+            icon.style.left = '0%';
+            icon.style.top = '50%';
+            break;
+        case '4F':
+            // 將圖示放置到四樓對應的位置
+            icon.style.left = '50%';
+            icon.style.top = '50%';
+            break;
+        default:
+            break;
+    }
+}
+
 function loadjson() {
     fetch(jsonUrl)
         .then(response => {
@@ -40,7 +69,7 @@ function loadjson() {
             if (point.Floor !== currentFloor) {
                 console.log(`Switched to Floor ${point.Floor}`);
                 currentFloor = point.Floor;
-                // 在此處執行樓層相關操作，例如更新地圖顯示
+                switchFloorLogic(currentFloor);
             }
 
             updateIconPosition(point.X, point.Y);
