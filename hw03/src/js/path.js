@@ -16,35 +16,28 @@ function calculatePosition(x, y) {
 }
 
 function updateIconPosition(x, y) {
-  console.log(x, y);
-  const { x: iconX, y: iconY } = calculatePosition(x, y);
-  icon.style.left = `${iconX}%`;
-  icon.style.top = `${iconY}%`;
-}
+    const { x: iconX, y: iconY } = calculatePosition(x, y);
 
-function switchFloorLogic(floor) {
-    // 切換樓層時的邏輯
-    // 更改追蹤圖示的位置
-    switch (floor) {
+    // 根據樓層位置將頭像放置在相應的圖片上
+    switch (currentFloor) {
         case '1F':
-            // 將圖示放置到一樓對應的位置
-            icon.style.left = '0%';
-            icon.style.top = '0%';
+            icon.style.left = `${iconX}%`;
+            icon.style.top = `${iconY}%`;
             break;
         case '2F':
-            // 將圖示放置到二樓對應的位置
-            icon.style.left = '50%';
-            icon.style.top = '0%';
+            // 調整樓層二的圖片位置
+            icon.style.left = `${50 + iconX}%`;
+            icon.style.top = `${iconY}%`;
             break;
         case '3F':
-            // 將圖示放置到三樓對應的位置
-            icon.style.left = '0%';
-            icon.style.top = '50%';
+            // 調整樓層三的圖片位置
+            icon.style.left = `${iconX}%`;
+            icon.style.top = `${50 + iconY}%`;
             break;
         case '4F':
-            // 將圖示放置到四樓對應的位置
-            icon.style.left = '50%';
-            icon.style.top = '50%';
+            // 調整樓層四的圖片位置
+            icon.style.left = `${50 + iconX}%`;
+            icon.style.top = `${50 + iconY}%`;
             break;
         default:
             break;
