@@ -9,11 +9,11 @@ FileAttachment("UserData@1.json").json()
 )}
 
 function _bgColor(Inputs){return(
-Inputs.color({ label: "background color", value: "#dde6ee" })
+Inputs.color({ label: "background color", value: "#bde2ff" })
 )}
 
 function _strokeColor(Inputs){return(
-Inputs.color({ label: "stroke color", value: "#000000" })
+Inputs.color({ label: "stroke color", value: "#427646" })
 )}
 
 function _strokeOpacity(Inputs){return(
@@ -66,7 +66,7 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
 
   const maxValue = 42;
   const thresholds = d3.range(0, maxValue + 1);
-  const colorRange = thresholds.map(value => d3.interpolateBlues(value / maxValue));
+  const colorRange = thresholds.map(value => d3.interpolateGreens(value / maxValue));
   const thresholdScale = d3.scaleThreshold().domain(thresholds).range(colorRange);
   
   details
@@ -80,7 +80,7 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
       );
       return foundData ? thresholdScale(foundData.count) : thresholdScale(0);
     })
-    .attr("stroke", "white")
+    .attr("stroke", "gray")
     .attr("d", path)
     .append("title")
     .text((d) => {
@@ -256,7 +256,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["UserData@1.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
+    ["UserData@1.json", {url: new URL("./files/37a09ac7213b196f8dfc9f01c6e2cdf63bf5bf446fedded78b4ce6a9a636a2745ecacb45a6d689d3d21c8e215c76b37380cd8dbf847d839f753f6b8e4e0d4bed.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
