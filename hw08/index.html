@@ -260,6 +260,7 @@
               type="checkbox"
               class="flipswitch"
               id="myCheckbox7"
+              checked="checked"
             />
           </td>
           <td id="m7">2</td>
@@ -272,6 +273,7 @@
               type="checkbox"
               class="flipswitch"
               id="myCheckbox5"
+              checked="checked"
             />
           </td>
           <td id="m5">1</td>
@@ -355,6 +357,14 @@
   </div>
   <!-- ------------------------------------------------>
 
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+      <video id="video1" style="width:100%;max-width:100%;" controls="">
+        <source src="https://Shuan0402.github.io/vis2023f/hw07/src/hw08_demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
   <!-- ------------------------------------------------>
 
 
@@ -390,6 +400,22 @@
 
     if (d3.select("#myCheckbox3").property("checked")){
       score += parseInt(d3.select('#m3').html());   
+    }
+
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());
+    }
+
+    if (d3.select("#myCheckbox5").property("checked")){
+      score += parseInt(d3.select('#m5').html());   
+    }
+
+    if (d3.select("#myCheckbox6").property("checked")){
+      score += parseInt(d3.select('#m6').html());   
+    }
+
+    if (d3.select("#myCheckbox7").property("checked")){
+      score += parseInt(d3.select('#m7').html());   
     }
 
     d3.select("#myTotal").html(score);    
